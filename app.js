@@ -1,5 +1,4 @@
-
-//install 3rd party packages
+// installed 3rd party packages
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -13,7 +12,7 @@ let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // express  -e
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -38,7 +37,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { title: 'Error'});
 });
 
 module.exports = app;
